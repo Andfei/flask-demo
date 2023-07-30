@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Создание идеи</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+      <div class="container mt-4">
+        <h1>Создание новую идею</h1>
+        <h1>{{ errors }}</h1>
+        <form action="/create_idea" method="POST">
+            <div class="form-group">
+                <label for="idea">Идея</label>
+                <input type="text" class="form-control" id="idea" name="idea" required>
+            </div>
+            <div class="form-group">
+                <label for="user_id">Пользователь</label>
+                <select class="form-control" id="user_id" name="user_id">
+                    {% for users in user %}
+                    <option value="{{ user.id }}">{{ user.username }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Создать</button>
+        </form>
+    </div>
+</body>
+</html>
