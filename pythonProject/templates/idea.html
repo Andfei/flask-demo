@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список идей пользователя {{ user.username }}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Список идей {{ user.username }}</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Идея</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ideas in idea %}
+                <tr>
+                    <td>{{ ideas.idea }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

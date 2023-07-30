@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список пользователей</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Список пользователей</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Id</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for users in user %}
+                <tr>
+                    <td>{{ users.username }}</td>
+                    <td>{{ users.email }}</td>
+                    <td>
+                        <a href="{{ url_for('show_home', user_id=user.id) }}" class="btn btn-primary">Посмотреть идею</a>
+                    </td>
+                     <td>
+                        <a href="{{ url_for('create_idea', user_id=user.id) }}" class="btn btn-primary">Создать идею</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
